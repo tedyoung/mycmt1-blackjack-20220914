@@ -9,7 +9,7 @@ class CardTest {
 
     @Test
     public void withNumberCardHasNumericValueOfTheNumber() throws Exception {
-        Card card = new Card("don't care", "7");
+        Card card = new Card(Suit.HEARTS, "7");
 
         assertThat(card.rankValue())
                 .isEqualTo(7);
