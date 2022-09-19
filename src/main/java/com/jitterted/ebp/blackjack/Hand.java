@@ -50,7 +50,23 @@ public class Hand {
                                         ansi().cursorUp(6).cursorRight(1).toString())));
     }
 
+    boolean isBusted() {
+        return value() > 21;
+    }
+
     Card faceUpCard() {
         return cards.get(0);
+    }
+
+    boolean shouldDealerHit() {
+        return value() <= 16;
+    }
+
+    boolean pushes(Hand hand) {
+        return value() == hand.value();
+    }
+
+    boolean beats(Hand hand) {
+        return hand.value() < value();
     }
 }
