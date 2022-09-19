@@ -20,7 +20,9 @@ public class Hand {
         this.cards.addAll(cards);
     }
 
+    // What's the invariant?
     void drawCardFrom(Deck deck) {
+        // if busted, throw exception
         cards.add(deck.draw());
     }
 
@@ -67,6 +69,7 @@ public class Hand {
     }
 
     boolean beats(Hand hand) {
+        // if either this or hand is busted, this query makes no sense
         return hand.value() < value();
     }
 }
