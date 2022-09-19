@@ -2,7 +2,9 @@ package com.jitterted.ebp.blackjack;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,23 +16,26 @@ public class HandValueAceTest {
 
     @Test
     public void handWithOneAceTwoCardsIsValuedAt11() throws Exception {
-        Game game = new Game();
-        List<Card> cards = List.of(new Card(DUMMY_SUIT, "A"),
-                                   new Card(DUMMY_SUIT, "5"));
+        Hand hand = createHandWithRanksOf("A", "5");
 
-        assertThat(game.handValueOf(cards))
+        assertThat(hand.value())
                 .isEqualTo(11 + 5);
     }
 
     @Test
     public void handWithOneAceAndOtherCardsEqualTo11IsValuedAt1() throws Exception {
-        Game game = new Game();
-        List<Card> cards = List.of(new Card(DUMMY_SUIT, "A"),
-                                   new Card(DUMMY_SUIT, "8"),
-                                   new Card(DUMMY_SUIT, "3"));
+        Hand hand = createHandWithRanksOf("A", "8", "3");
 
-        assertThat(game.handValueOf(cards))
+        assertThat(hand.value())
                 .isEqualTo(1 + 8 + 3);
+    }
+
+    private Hand createHandWithRanksOf(String... ranks) {
+        List<Card> cards = Arrays.stream(ranks)
+                                 .map(rank -> new Card(DUMMY_SUIT, rank))
+                                 .collect(Collectors.toList());
+
+        return Hand.handWithCardsForTesting(cards);
     }
 
 }
