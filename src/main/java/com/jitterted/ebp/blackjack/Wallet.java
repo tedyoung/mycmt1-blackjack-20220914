@@ -9,6 +9,9 @@ public class Wallet {
     }
 
     public void addMoney(int amount) {
+        if (amount <= -1) {
+            throw new IllegalArgumentException();
+        }
         balance += amount;
     }
 
