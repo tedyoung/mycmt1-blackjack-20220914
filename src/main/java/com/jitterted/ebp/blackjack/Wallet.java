@@ -22,4 +22,8 @@ public class Wallet {
             throw new IllegalArgumentException();
         }
     }
+
+    public void bet(int betAmount) {
+        balance -= betAmount;
+    }
 }
