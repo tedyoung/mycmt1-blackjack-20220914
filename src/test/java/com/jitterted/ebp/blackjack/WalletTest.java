@@ -13,4 +13,14 @@ public class WalletTest {
         assertThat(wallet.isEmpty())
                 .isTrue();
     }
+
+    @Test
+    void newWalletAddMoneyWalletIsNotEmpty() {
+        Wallet wallet = new Wallet();
+
+        wallet.addMoney(1);
+
+        assertThat(wallet.isEmpty())
+                .isFalse();
+    }
 }
