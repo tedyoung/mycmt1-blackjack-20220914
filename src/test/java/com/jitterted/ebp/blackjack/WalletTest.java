@@ -31,4 +31,14 @@ public class WalletTest {
         assertThat(wallet.balance())
                 .isZero();
     }
+
+    @Test
+    void newWalletAdd10ThenBalanceIs10() {
+        Wallet wallet = new Wallet();
+
+        wallet.addMoney(10);
+
+        assertThat(wallet.balance())
+                .isEqualTo(10);
+    }
 }
