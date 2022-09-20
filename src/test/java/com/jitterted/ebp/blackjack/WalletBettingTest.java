@@ -27,6 +27,16 @@ public class WalletBettingTest {
                 .isEqualTo(27 - 7 - 9);
     }
 
+    @Test
+    void betFullBalanceThenWalletIsEmpty() {
+        Wallet wallet = createWalletWithInitialAmountOf(73);
+
+        wallet.bet(73);
+
+        assertThat(wallet.isEmpty())
+                .isTrue();
+    }
+
     private Wallet createWalletWithInitialAmountOf(int amount) {
         Wallet wallet = new Wallet();
         wallet.addMoney(amount);
