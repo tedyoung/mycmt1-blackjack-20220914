@@ -198,4 +198,8 @@ public class Game {
     public void playerDeposits(int depositAmount) {
         playerBalance += depositAmount;
     }
+
+    public void playerBets(int betAmount) {
+        playerBalance -= betAmount;
+    }
 }
