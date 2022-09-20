@@ -13,6 +13,7 @@ public class Game {
 
     private final Hand dealerHand = new Hand();
     private final Hand playerHand = new Hand();
+    private int playerBalance = 0;
 
     public static void main(String[] args) {
         displayWelcome();
@@ -188,5 +189,9 @@ public class Game {
 
     private void clearScreen() {
         System.out.print(ansi().eraseScreen().cursor(1, 1));
+    }
+
+    public int playerBalance() {
+        return playerBalance;
     }
 }
