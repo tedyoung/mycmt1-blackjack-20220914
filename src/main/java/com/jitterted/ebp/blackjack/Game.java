@@ -49,7 +49,7 @@ public class Game {
                                    .cursor(1, 1)
                                    .fgGreen().a("Welcome to")
                                    .fgRed().a(" JitterTed's")
-                                   .fgBlack().a(" BlackJack game"));
+                                   .fgBlack().a(" Blackjack game"));
     }
 
     public Game() {
